@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="index.html"><img src="http://forum.azyrusthemes.com/images/logo.jpg" alt=""  /></a></div>
                     <div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
-                        <a data-toggle="dropdown" href="#" >Britania</a>
+                        <a href="{{ route('home') }}" >Britania</a>
                     </div>
                     <div class="col-lg-4 search hidden-xs hidden-sm col-md-3">
                         <div class="wrap">
@@ -30,9 +30,8 @@
                     </div>
                     <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
                         <div class="stnt pull-left">                            
-                            <form action="03_new_topic.html" method="post" class="form">
-                                <button class="btn btn-primary">Start New Topic</button>
-                            </form>
+                            <a class="btn btn-primary">Ask Question</a>
+                            <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
                         </div>
                         <div class="env pull-left"><i class="fa fa-envelope"></i></div>
 

@@ -2,18 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::namespace('User')->group(function () {
 
-Route::get('/new', function () {
-    return view('newpost');
-});
+    Route::namespace('Auth')->middleware(['guest'])->group(function () {
 
-Route::get('/single', function () {
-    return view('single');
-});
+        Route::get('/login','AuthController@show_login_form')->name('login');
+        Route::get('/register','AuthController@show_signup_form')->name('register');
+        Route::post('/register','AuthController@process_signup');
+    
+    });
 
-Route::get('/signup', function () {
-    return view('signup');
+    Route::get('/','HomeController@show_home_page')->name('home');
+   
 });
