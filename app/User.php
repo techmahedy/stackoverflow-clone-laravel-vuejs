@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-
+   
     protected $guarded = [];
 
     protected $hidden = [
@@ -23,5 +23,15 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = \Hash::make($value);
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
+    public function getRouteKeyName()
+    {
+       return 'username';
     }
 }

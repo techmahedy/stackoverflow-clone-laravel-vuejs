@@ -19,6 +19,12 @@
     </footer>
 </div>
 
+@auth
+<script>
+    var authuser = @JSON(auth()->user()->id)
+</script>  
+@endauth
+
 <script src="{{ mix('js/app.js') }}"> </script>
 
     </body>

@@ -1,11 +1,11 @@
 <template>
     <div class="container">
     <div class="post">
+    <div class="postinfotop">
+       <h2>Create New Account</h2>
+        <p id="text" style="color:green; margin-left:100px;"></p>
+    </div>
     <form action="#" class="form newtopic" @submit.prevent="register">
-        <div class="postinfotop">
-            <h2>Create New Account</h2>
-        </div>
-
         <!-- acc section -->
         <div class="accsection">
             <div class="topwrap">
@@ -95,7 +95,14 @@
 
             register () {
                 this.form.post('/register')
-                    .then(({ data }) => { console.log(data) })
+                    .then(( response ) => { 
+
+                        var attr = document.getElementById("text");
+                        attr.innerHTML = response.data.message;  
+                        
+                        this.form.reset();
+
+                     })
             },
             upload_avatar(e){
               let file = e.target.files[0];
